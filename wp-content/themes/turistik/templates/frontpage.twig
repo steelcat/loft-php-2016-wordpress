@@ -1,0 +1,24 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <h1 class="title-page">Последние новости и акции из мира туризма</h1>
+  <div class="posts-list">
+    {% for post in posts %}
+      <div class="post-wrap">
+        <div class="post-thumbnail"><img src="{{ post.thumbnail }}" alt="Image поста" class="post-thumbnail__image"></div>
+        <div class="post-content">
+          <div class="post-content__post-info">
+            <div class="post-date">29.07.2016</div>
+          </div>
+          <div class="post-content__post-text">
+            <div class="post-title">
+              {{ post.title }}
+            </div>
+            {{ post.content }}
+          </div>
+          <div class="post-content__post-control"><a href="#" class="btn-read-post">Читать далее &gt;&gt;</a></div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
