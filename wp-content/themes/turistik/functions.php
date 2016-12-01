@@ -28,6 +28,11 @@ set_post_thumbnail_size(825, 510, true);
 // Добавляем новый размер картинок
 add_image_size('article-image', 380, 300, true);
 
+// Регистрируем меню
+register_nav_menus([
+    'main-menu' => __('Primary Menu', 'turistik'),
+]);
+
 // Регистрируем сайдбар как место для расположения виджетов
 function turistik_widgets_init()
 {

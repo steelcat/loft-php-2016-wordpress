@@ -14,9 +14,9 @@
             <div class="post-title">
               {{ post.title }}
             </div>
-            {{ post.content }}
+            {{ post.get_preview(30, false, more)|apply_filters('the_content') }}
           </div>
-          <div class="post-content__post-control"><a href="#" class="btn-read-post">Читать далее &gt;&gt;</a></div>
+          <div class="post-content__post-control"><a href="{{ post.link }}" class="btn-read-post">Читать далее &gt;&gt;</a></div>
         </div>
       </div>
     {% endfor %}

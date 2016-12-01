@@ -13,7 +13,7 @@
       {% endif %}
     </title>
     <meta name="description" content="{{site.description}}">
-    {{ function('wp_head') }}
+    {{ fn('wp_head') }}
   </head>
   <body class="{{ body_class }}" data-template="base.twig">
     <div class="wrapper">
@@ -25,11 +25,11 @@
             </div>
             <nav class="main-navigation">
               <ul class="nav-list">
-                <li class="nav-list__nav-item"><a href="#" class="nav-list__nav-item__nav-link">Главная</a></li>
-                <li class="nav-list__nav-item"><a href="#" class="nav-list__nav-item__nav-link">Полезная информация</a></li>
-                <li class="nav-list__nav-item"><a href="#" class="nav-list__nav-item__nav-link">Последние акции</a></li>
-                <li class="nav-list__nav-item"><a href="#" class="nav-list__nav-item__nav-link">О сервисе</a></li>
-                <li class="nav-list__nav-item"><a href="#" class="nav-list__nav-item__nav-link">Новости</a></li>
+                {% for item in menu.items %}
+                  <li class="nav-list__nav-item">
+                    <a class="nav-list__nav-item__nav-link" href="{{item.url}}">{{item.name}}</a>
+                  </li>
+                {% endfor %}
               </ul>
             </nav>
           </div>
@@ -57,8 +57,22 @@
         </div>
       </div>
       <footer class="main-footer">
+        <div class="content-footer">
+          <div class="bottom-menu">
+            <ul class="b-menu__list">
+                {% for item in menu.items %}
+                  <li class="b-menu__list__item">
+                    <a class="b-menu__list__item__link" href="{{item.url}}">{{item.name}}</a>
+                  </li>
+                {% endfor %}
+            </ul>
+          </div>
+          <div class="copyright-wrap">
+            <div class="copyright-text">Туристик <a href="{{ site.link }}" class="copyright-text__link">loftschool 2016</a></div>
+          </div>
+        </div>
       </footer>
     </div>
-    {{ function('wp_footer') }}
+    {{ fn('wp_footer') }}
   </body>
 </html>
